@@ -1,29 +1,17 @@
-/* styles.css */
-body {
-    font-family: 'Roboto', sans-serif;
-}
+// scripts.js
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Thank you for your message!');
+    });
 
-header {
-    background-color: #1d4ed8;
-}
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
 
-footer {
-    background-color: #1d4ed8;
-}
-
-section {
-    padding: 5rem 0;
-}
-
-section h2 {
-    margin-bottom: 1rem;
-}
-
-.bg-cover {
-    background-size: cover;
-    background-position: center;
-}
-
-.text-center {
-    text-align: center;
-}
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+});
